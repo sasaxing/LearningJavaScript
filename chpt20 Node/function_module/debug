@@ -1,0 +1,12 @@
+//let lastMessage = Date.now(); //even when you import debug module twice, Node has "remembered" that we imported it before and used the same instance.
+// thus even debug1 and debug2 are separate functions, they both share a reference to lastMessage.
+
+module.exports = function(prefix){
+  let lastMessage = Date.now();  // new , independent value every time a logger is created.
+  return function(message){
+    const now = Date.now();
+    const sinceLastMessage = now - (lastMessage || now);
+    console.log(`${prefix} ${message} +${sinceLastMessage}ms`);
+    lastMessage = now;
+  }
+}
