@@ -7,7 +7,7 @@ let app = new Koa();
 
 app.use(body({
     encoding: 'utf-8',
-    uploadDir: path.join(__dirname, '../../tempDir'),
+    uploadDir: path.join(__dirname, '../../ServerLogs/tempDir'),
     keepExtensions: true
 }));
 app.use(function*() {
@@ -21,10 +21,10 @@ app.use(function*() {
                 throw err;
             } else {
                 if( fs.statSync(newPath).size === 0 ){
-                    console.log("File in ServerLogs/ is empty!")
+                    console.log("There is a file in ServerLogs/ is empty!")
                 } else {
                     console.log("successfully moved logfiles into ServerLogs/");
-                    
+
                 }
             }
         })
