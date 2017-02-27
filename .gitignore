@@ -11,3 +11,5 @@ node_modules
 # documentations
 *.pdf
 **/*/*.pdf
+# AWS-S3
+AWS/

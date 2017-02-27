@@ -8,7 +8,8 @@ fs.readFile(path.join(__dirname,"hello.txt"), {encoding: 'utf8'}, function(err, 
   console.log('Read file contents:');
   console.log(data);
 
-})
+})  // this returns a string
+// without option:{encodeing: 'utf8'}, this will return an object
 
 
 //console.log(fs.readdirSync(__dirname));
