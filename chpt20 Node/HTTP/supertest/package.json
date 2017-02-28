@@ -1,0 +1,22 @@
+{
+  "name": "trysupertest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./**.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.1",
+    "koa": "^2.0.1",
+    "koa-better-body": "^3.0.2",
+    "koa-multer": "^1.0.1",
+    "koa-route": "^3.2.0",
+    "koa-router": "^5.4.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}

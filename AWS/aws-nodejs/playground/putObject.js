@@ -5,7 +5,7 @@ var s3 = new AWS.S3();
 
 var params = {
     Bucket: 'rtc-platform-fusion-test-artifacts', //destination bucket
-    Key: 'hello_world2.txt', // file name
+    Key: 'newFolder/hello_world1.txt', // file name
     Body: 'hey , how are you ?' // file contents: string, Buffer, Stream, Blob, or typed array object
 };
 
