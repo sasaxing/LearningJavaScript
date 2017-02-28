@@ -18,3 +18,10 @@ fs.readdir(__dirname, function(err, files){
   console.log(`Contents of ${__dirname}`);
   console.log(files.map( f => '\t'+f).join('\n'));
 })
+
+let filePaths = ['./hello.txt', './helloo.txt']
+filePaths.forEach(function(element){
+    let buffer = fs.readFileSync(element)
+    console.log(`buffer = ${buffer}`);
+
+})

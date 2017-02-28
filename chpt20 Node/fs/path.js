@@ -16,3 +16,5 @@ fs.readFile(path.join(__dirname,"aFolder", "..", "hello.txt"), {encoding: 'utf8'
     console.log(data);
 
 })
+
+console.log(path.join('hellooo', 'wrold'));

@@ -5,11 +5,12 @@
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^7.0.4",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.34",
+    "@types/node": "^7.0.4",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "typedoc": "^0.5.7"
   },
   "scripts": {
     "test": "mocha --colors --reporter spec build/test/**/*spec.js",
