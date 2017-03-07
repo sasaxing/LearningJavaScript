@@ -1,7 +1,5 @@
 //https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs/
-
-var sinon = require('sinon')
-
+let sinon = require('sinon')
 
 console.log(`\n==>1. anonymous spy`);
 let spy1 = sinon.spy();
@@ -24,14 +22,23 @@ let user = {
 }
 let spy2 = sinon.spy(user, 'setName')
 user.setName('Darth Vader')
+console.log(user.name);
 console.log(spy2.callCount); //1
 //Important final step - remove the spy
 spy2.restore() //?
 
 
 console.log(`\n==>3. spy for a callback`);
-module.exports.myFunction = function(condition, callback){
+function myFunction(condition, callback){
     if(condition){
         callback();
     }
 }
+
+describe('myFunction', ()=> {
+    it('should call the callback function', ()=> {
+        var callback = sinon.spy()
+        myFunction(true, callback)
+        sinon.assert.calledOnce(callback);
+    });
+});

@@ -1,0 +1,18 @@
+async function archiveArtifact(oldPath, newPath) {
+    fs.rename(oldPath, newPath) 
+}
+
+    async archiveArtifact(sutId: string, fileName: string, tempPath: any): Promise<any> {
+
+        try{
+            await this.createSUTFolder(sutId)
+            let targetPath = path.join(this.logsPath, sutId, fileName)
+            fs.rename(tempPath, targetPath)
+        } catch (err) {
+            throw err
+        }
+
+    }
+
+let amy = new Person()
+amy.buyCar(1909)
