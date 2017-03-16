@@ -11,5 +11,8 @@
   "devDependencies": {
     "mocha": "^3.2.0",
     "sinon": "^1.17.7"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
   }
 }
