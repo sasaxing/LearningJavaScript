@@ -26,8 +26,8 @@ describe('stub', function () {
         console.log(`stub.callCount = ${stub.callCount}`)
         console.log(`cbSpy.callCount = ${cbSpy.callCount}`)
         sinon.assert.calledWith(stub, false, cbSpy)
-        console.log(`sinon.assert = ${sinon.assert}`)
-        console.log(sinon.assert)
+        //console.log(`sinon.assert = ${sinon.assert}`)
+        //console.log(sinon.assert)
 
     })
 })
