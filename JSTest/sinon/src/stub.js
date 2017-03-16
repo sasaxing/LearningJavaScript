@@ -2,27 +2,32 @@
 
 var sinon = require('sinon')
 
-console.log(`\n==>1. anonymous stub`);
-let stub1 = sinon.stub();
+describe('stub', function () {
+    it('yields to first callback', () => {
 
-//We can call a spy like a function
-stub1('Hello', 'World');
-stub1('Hello2', 'World2');
+        console.log(`\n==>1. yields `);
+        let myObj = {
+            myFunc: function (condition, callback) {
+                if (condition) {
+                    callback()
+                } else {
+                    //do nothing
+                }
+            }
+        }
+        let stub = sinon.stub(myObj, 'myFunc')
 
-//Now we can get information about the call
-console.log(stub1.firstCall.args); //output: ['Hello', 'World']
-console.log(stub1.secondCall.args); //output: ['Hello', 'World']
+        let cbSpy = sinon.spy()
+        stub(false, cbSpy) // will not make callback to be executed, because it's not really executing myFunc
+        stub.yields() //automatically calls the first function passed as a parameter === stub.callback()
+        // but why we'd want to use it? 
 
-console.log(`\n==>2. spy for an object's method`);
-let user = {
-    setName: function(name){
-        this.name = name
-    }
-}
-let stub2 = sinon.stub(user, 'setName')
-user.setName('Darth Vader')
-user.setName('Darth Vader')
-console.log(user.name);
-console.log(stub2.callCount); //1
-//Important final step - remove the spy
-stub2.restore() //?
+        stub.restore() //stop stubbing cut
+        console.log(`stub.callCount = ${stub.callCount}`)
+        console.log(`cbSpy.callCount = ${cbSpy.callCount}`)
+        sinon.assert.calledWith(stub, false, cbSpy)
+        console.log(`sinon.assert = ${sinon.assert}`)
+        console.log(sinon.assert)
+
+    })
+})
