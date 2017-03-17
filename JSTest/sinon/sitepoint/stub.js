@@ -36,15 +36,15 @@ describe('stub', function () {
 
 describe.only('fs', () => {
     it('should call the callback of fs.mkdir', () => {
-        const cb = Sinon.spy()
-        const spy1 = Sinon.spy(fs, 'mkdir')
+        const myCallback = Sinon.spy()
+        const mkdirStub = Sinon.stub(fs, 'mkdir').throws(new Error('blah'))
 
-        spy1('a', cb) //expect: cb will be called as callback of fs.mkdir
+        fs.mkdir('aFolder', myCallback) //expect: myCallback will be called as callback of fs.mkdir
 
-        spy1.restore()
+        mkdirStub.restore()
 
-        Sinon.assert.calledWith(spy1, 'a', cb)
-        Sinon.assert.calledOnce(cb)  // but never called
-        console.log(cb.args)  // empty array.
+        Sinon.assert.calledWith(mkdirStub, 'aFolder', myCallback)
+        //Sinon.assert.calledOnce(myCallback)  // but never called
+        console.log(myCallback.args)  // empty array.
     })
 })
