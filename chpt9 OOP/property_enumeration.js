@@ -38,8 +38,8 @@ for(let p in aSub){
   console.log(`${p}:${aSub[p]}` +
     ((aSub.hasOwnProperty(p)) ? '' : ' (inherited) ' ));
 
-  // obj.hasOwnProperty(p) ==== true : p is defined on the instance obj.
-  // obj.hasOwnProperty(p) ==== false : p is not defined or defined in the prototype chain.
+  // obj.hasOwnProperty(p) ==== true : p is defined on the instance obj [e.g., anObj.newProperty = 'something']
+  // obj.hasOwnProperty(p) ==== false : p is not defined or defined in the prototype chain( defined on the Class) [e.g, AClass.prototype.newProperty = 'something'].
 }
 
 console.log(`==> show only the properties defined on the prototype using Object.keys(obj)`);

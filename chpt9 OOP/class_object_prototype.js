@@ -7,18 +7,18 @@
 // Array.isArray(): is a static method, it's not available on instances, it'll be used in different way:
 // Array.isArray(arr);
 
-console.log('\n1.');
-class Car{
-  constructor(name, year, started=false){
+console.log('\n==>1.');
+class Car {
+  constructor(name, year, started = false) {
     this.name = name;
     this.year = year;
     this.started = started;
   }
-  start(){
+  start() {
     this.started = true;
     console.log(`Car ${this.name} started!`);
   }
-  stop(){
+  stop() {
     this.started = false;
     console.log(`Car ${this.name} stopped!`);
   }
@@ -30,8 +30,8 @@ console.log(car1);
 console.log(car2);
 console.log(car1.start === car2.start); //true
 car1.start();
-car1.start = function(){
-  if(!this.started){
+car1.start = function () {
+  if (!this.started) {
     this.started = true;
   }
 }
@@ -41,18 +41,47 @@ Car.prototype.start();
 // because it's defined in
 
 
-console.log('\n2.');
-car1.drive = function(){
-  if(this.started){
+console.log('\n==>2.');
+car1.drive = function () {
+  if (this.started) {
     console.log("Let's drive!");
-  }else{
+  } else {
     console.log("You should first start it!");
   }
 }
 car1.drive();
 console.log(Object.getPrototypeOf(car1)); // Car{}: class Car's prototype.
-let str = Object.getOwnPropertyDescriptor(car1,'drive');
+let str = Object.getOwnPropertyDescriptor(car1, 'drive');
 console.log(str);
 //Car.prototype.drive();
 //Error, it's not a prototype method of Car.
 // it's only available on car1.
+
+console.log('\n==>3.');
+
+//http://www.zsoltnagy.eu/es2015-lesson-4-classes/
+function Shape(color) {
+  this.color = color;
+}
+
+Shape.prototype.getColor = function () {  //add 'getColor' to the Class Shape <==> all instances have this property.
+  return this.color;
+}
+
+function Rectangle(color, width, height) {
+  Shape.call(this, color);  // Shape(color).bind(this): this.color = color
+  this.width = width;
+  this.height = height;
+};
+
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+Rectangle.prototype.getArea = function () {
+  return this.width * this.height;
+};
+
+let rectangle = new Rectangle('red', 5, 8);
+console.log(rectangle.getArea());
+console.log(rectangle.getColor());
+console.log(rectangle.toString());
