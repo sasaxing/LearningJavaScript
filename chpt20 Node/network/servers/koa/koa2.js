@@ -47,7 +47,11 @@ app.use(async function (ctx, next) {
 // response
 app.use(ctx => {
     console.log('\n==>response')
-    ctx.body = 'hello world.'  // Response alias (== ctx.response.body)
+
+    ctx.set('error-message', 'Error happens!')
+    ctx.response.status = 400
+    ctx.response.body = ctx.response  // Response alias (== ctx.response.body)
+
 })
 
 app.on('error', err =>
