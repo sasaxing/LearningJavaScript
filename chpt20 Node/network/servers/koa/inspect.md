@@ -1,6 +1,6 @@
 # Koa
 
-### this
+### ctx
 
 Inside `function* () {}`,   `this` includes : _request_, _response_, _app_, _originalUrl_, _req_, _res_, _socket_.
 
@@ -28,9 +28,9 @@ Inside `function* () {}`,   `this` includes : _request_, _response_, _app_, _ori
 
 After you change the content of the **response body** by
 
-`this.body = 'Here is what server wrote on this.body'`,  or
+`ctx = 'Here is what server wrote on this.body'`,  or
 
-`this.response.body = 'Here is what server wrote on this.body'`,
+`ctx.response.body = 'Here is what server wrote on this.body'`,
 
 it will automatically set the _response_ to a valid response.
 
@@ -120,4 +120,24 @@ When you use **koa-better-body**  to parse the **koa application** by `app.use(b
        lastModifiedDate: 2017-04-03T13:30:28.852Z,
        _writeStream: [Object] } ] }
 ```
+
+Many of the context's accessors and methods simply delegate to their `ctx.request` or `ctx.response` equivalents for convenience, and are otherwise identical. For example `ctx.type` and `ctx.length` delegate to the `response` object, and `ctx.path` and `ctx.method`delegate to the `request`. More examples see: http://koajs.com/ _(Request alias & Response alias )_
+
+> Examples of Request alias
+>
+> ```
+> ctx.method // <==> ctx.request.method
+> ctx.url // <==> ctx.request.url
+> ctx.path // <==> ctx.request.path   
+> ctx.get(field)  // <==> ctx.request.get(field): Get a response header field value with case-insensitive field.
+> ```
+
+> Examples of Response alias
+>
+> ```
+> ctx.body // <==> ctx.response.body
+> ctx.type // <==> ctx.response.type
+> ctx.length // <==> ctx.response.length
+> ctx.set(field, value)    // <==> ctx.response.set(field, value)  : Set response header field to value
+> ```
 

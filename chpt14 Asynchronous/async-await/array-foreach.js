@@ -17,11 +17,11 @@ function printPromisely(item) {
 }
 
 
-words.forEach(async function (element, index, arr) {
+words.forEach( function (element, index, arr) {
     console.log(i++)
 
     //this part will be executed in the end
-    await printPromisely(element)
+     printPromisely(element)
 
     console.log(j++)
 }, myObj)

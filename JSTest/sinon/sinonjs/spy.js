@@ -33,7 +33,7 @@ describe('spy', () => {
         Sinon.assert.calledOnce(spy)  /////????????????? -- calledTwice
         //////////////////////////////////
     })
-    it('can spy on the method of my Obj', () => {
+    it.only('can spy on the method of my Obj', () => {
         let myObj = {
             name: 'xxs',
             myMethod: function (param1, param2) {
@@ -41,13 +41,17 @@ describe('spy', () => {
             }
         }
         const spy = Sinon.spy(myObj, 'myMethod')
+        // spy === myobj.myMethod
         myObj.myMethod('p1', 'p2')
         myObj.myMethod('p11', 'p22')
         spy('p3', 'p4')
-        spy.restore()
+
         Sinon.assert.calledThrice(spy)
         Sinon.assert.calledWith(spy, 'p1', 'p2')
+        expect(spy.withArgs('p11', 'p22').calledOnce).to.be.true
         expect(spy.getCall(1).args).to.deep.equal(['p11', 'p22'])
+
+        spy.restore()
 
     })
     it('can detect it when myFunc threw error', () => {

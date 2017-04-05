@@ -2,6 +2,7 @@
 
 const Sinon = require('sinon')
 const fs = require('fs')
+const expect = require('chai').expect
 
 describe('stub', function () {
     it('yields to first callback', () => {
@@ -37,14 +38,25 @@ describe('stub', function () {
 describe.only('fs', () => {
     it('should call the callback of fs.mkdir', () => {
         const myCallback = Sinon.spy()
-        const mkdirStub = Sinon.stub(fs, 'mkdir').throws(new Error('blah'))
+        const errObj = new Error('blah')
+        const anotherErrorObj = new Error('something else')
+        const mkdirStub = Sinon.stub(fs, 'mkdir').throws(errObj)
 
-        fs.mkdir('aFolder', myCallback) //expect: myCallback will be called as callback of fs.mkdir
+        try {
+            fs.mkdir('aFolder', myCallback) //expect: myCallback will be called as callback of fs.mkdir
+        } catch (err) {
+            mkdirStub.yield(err)
+        }
 
         mkdirStub.restore()
 
-        Sinon.assert.calledWith(mkdirStub, 'aFolder', myCallback)
-        //Sinon.assert.calledOnce(myCallback)  // but never called
-        console.log(myCallback.args)  // empty array.
+        Sinon.assert.threw(mkdirStub)
+        expect(myCallback.args[0][0].message).to.equal(new Error('blah').message)
+
+        debugger
+        Sinon.assert.calledWith(myCallback, anotherErrorObj) // should have been failed!!: Error Object is not deeply comparable. They are all the same
+        expect(myCallback.args[0][0]).to.deep.equal(anotherErrorObj)// should have been failed!!
+        expect(myCallback.args[0][0]).to.deep.equal(new TypeError())// should have been failed!!
+
     })
 })
