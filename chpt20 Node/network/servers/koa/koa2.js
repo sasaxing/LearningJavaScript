@@ -5,7 +5,6 @@ const path = require('path')
 const Koa = require("koa");   //need koa@2 here !!!!! (koa2 also works for generators, but not couraged.)
 let app = new Koa()
 
-
 app.context.newProperty1 = 'new Property 1 (hidden)'
 app.context.newProperty2 = 'new Property 2 (hidden)'
 
@@ -44,14 +43,27 @@ app.use(async function (ctx, next) {
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`) // Request alias
 })
 
+const aProm = async function (request) {
+    if (request.includes('good')) {
+        return 'successful'
+    } else {
+        throw new Error('fail')
+    }
+}
 // response
-app.use(ctx => {
+app.use(async ctx => {
     console.log('\n==>response')
-
-    ctx.set('error-message', 'Error happens!')
-    ctx.response.status = 400
-    ctx.response.body = ctx.response  // Response alias (== ctx.response.body)
-
+    try {
+        await aProm('bad')
+        ctx.response.status = 200
+        debugger
+    } catch (e) {
+        debugger
+        ctx.response.status = 400
+        ctx.set('error-message', 'Error happens!')
+    } finally {
+        ctx.response.body = ctx.response  // Response alias (== ctx.response.body)
+    }
 })
 
 app.on('error', err =>
