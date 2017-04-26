@@ -19,5 +19,5 @@ words.forEach(function (e, index, arr) {
 
     //this part will be executed in the end
     doPromise(index)
-}, myObj)
+}, myObj) //,thisArg
 

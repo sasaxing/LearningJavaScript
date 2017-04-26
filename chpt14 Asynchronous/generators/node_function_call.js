@@ -1,30 +1,30 @@
 // use nfcall we can convert any method that takes a callback to a promise
-function nfcall(f, ...args){
-  return new Promise(function(resolve, reject) {
-    f.call(null, ...args, function(err, ...args){
-      if(err) return reject(err);
-      resolve(args.length<2 ? args[0] : args);
+function nfcall(f, ...args) {
+  return new Promise(function (resolve, reject) {
+    f.call(null, ...args, function (err, ...args) {
+      if (err) return reject(err);
+      resolve(args.length < 2 ? args[0] : args);
     })
   });
 }
 
 // we also need setTimeout, it takes a callback.
 // ptimeout = promise timeout
-function ptimeout(delay){
-  return new Promise(function(resolve, reject) {
+function ptimeout(delay) {
+  return new Promise(function (resolve, reject) {
     setTimeout(resolve, delay);
   });
 }
 
 //grun = generator runner
-function grun(g){
+function grun(g) {
   const it = g();
-  (function iterate(val){
+  (function iterate(val) {
     const x = it.next(val);
-    if(!x.done){
-      if(x.value instanceof Promise){
-        x.value.then(iterate).catch(err=> it.throw(err));
-      }else{
+    if (!x.done) {
+      if (x.value instanceof Promise) {
+        x.value.then(iterate).catch(err => it.throw(err));
+      } else {
         setTimeout(iterate, 0, x.value);
         // why not iterate() directly?
         // because we gain a little efficiency by avoiding synchronous recursion
@@ -69,23 +69,23 @@ function* theFutureIsNow(){
 }
 */
 
-function* theFutureIsNow(){
+function* theFutureIsNow() {
   let data;
-  try{
+  try {
     data = yield Promise.all([
-      nfcall(fs.readFile,'a.txt'),
-      nfcall(fs.readFile,'b.txt'),
-      nfcall(fs.readFile,'c.txt'),
+      nfcall(fs.readFile, 'a.txt'),
+      nfcall(fs.readFile, 'b.txt'),
+      nfcall(fs.readFile, 'c.txt'),
     ]);
-  }catch(err){
+  } catch (err) {
     console.error("Unable to read one or more input files: " + err.message);
     throw err;
   }
-  yield ptimeout(3*1000);
+  yield ptimeout(3 * 1000); //yield to this promise ptimeout. and the return value is what the promise resolves.
 
-  try{
-    yield nfcall(fs.writeFile, 'd.txt', data[0]+data[1]+data[2]);
-  }catch(err){
+  try {
+    yield nfcall(fs.writeFile, 'd.txt', data[0] + data[1] + data[2]);
+  } catch (err) {
     console.error("Unable to write output files: " + err.message);
     throw err;
   }
