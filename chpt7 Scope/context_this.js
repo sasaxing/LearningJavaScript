@@ -55,3 +55,18 @@ function f4(){
 }
 
 f4(); // f4
+
+
+
+console.log('==> f5():');
+this.outerProp = 'outerProp'
+this.bothProp = 'bothProp-outside'
+f5 = ()=>{
+  this.innerProp = 'innerProp'
+  this.bothProp = 'bothProp-inside'
+
+  console.log(this.innerProp)//inner scope's this has the property 'innerProp'
+  console.log(this.outerProp)//inner scope's this doesn't have the property 'innerProp', use the outside's this(=>)
+  console.log(this.bothProp) //both have. then use its own
+}
+f5()
