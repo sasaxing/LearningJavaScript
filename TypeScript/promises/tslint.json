@@ -1,0 +1,26 @@
+{
+    "rules": {
+        "curly": true,
+        "ter-indent": [
+            true,
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "semicolon": [
+            true,
+            "never"
+        ],
+        "triple-equals": true,
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape"
+        ],
+        "no-consecutive-blank-lines": [
+            true,
+            1
+        ]
+    }
+}
