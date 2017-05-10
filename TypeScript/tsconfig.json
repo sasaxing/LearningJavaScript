@@ -7,8 +7,8 @@
         "noImplicitAny": false,
         "sourceMap": true,
         "outDir": "build/",
-        "noUnusedParameters": true,
-        "noUnusedLocals": true
+        "noUnusedParameters": false,
+        "noUnusedLocals": false
     },
     "include": [
         "src/**.ts",
