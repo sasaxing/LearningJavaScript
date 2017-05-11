@@ -1,0 +1,20 @@
+{
+  "name": "promises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint 'src/*.ts'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^6.0.71"
+  },
+  "devDependencies": {
+    "tslint": "^5.1.0",
+    "tslint-eslint-rules": "^4.0.0",
+    "typescript": "^2.3.2"
+  }
+}
