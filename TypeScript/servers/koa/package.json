@@ -8,15 +8,12 @@
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/content-type": "^1.0.33",
-    "@types/koa": "^2.0.37",
-    "@types/koa-bodyparser": "^3.0.23",
     "@types/mocha": "^2.2.34",
     "@types/node": "^7.0.4",
     "@types/raw-body": "^2.1.1",
     "@types/request": "0.0.39",
     "chai": "^3.5.0",
     "content-type": "^1.0.2",
-    "koa": "^1.2.4",
     "koa-better-body": "^3.0.2",
     "koa-bodyparser": "^2.3.0",
     "koa-multer": "^1.0.1",
@@ -29,5 +26,9 @@
   },
   "scripts": {
     "test": "mocha --colors --reporter spec build/test/**/*spec.js"
+  },
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-convert": "^1.2.0"
   }
 }

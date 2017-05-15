@@ -13,16 +13,15 @@ let options = {
         'sutid': 'sut1',
         'contents': 'some log data...',
         //'Content-Type':
-        'content-type':'text/plain',
-        "content-length":"16",
+        'content-type': 'text/plain',
+        "content-length": "16",
     },
 
     //this.request.method
     method: 'POST',    //This is what changes the request to a POST request
-
 };
 
-let callback = function(response) {
+let callback = function (response) {
     console.log(`STATUS: ${response.statusCode}`);
     console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
     response.setEncoding('utf8');
