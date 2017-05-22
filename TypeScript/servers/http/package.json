@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/node": "6",
+    "http-promise": "^0.1.4"
+  }
+}
