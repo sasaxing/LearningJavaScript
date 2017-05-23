@@ -6,7 +6,7 @@ const localhostLink = 'http://localhost:3000'
 var formData = {
     sutid: "sut1",
     my_fieeld: 'my_value',
-    logfiles: [fs.createReadStream('../LocalLogs/file1.json'), fs.createReadStream('../LocalLogs/file2.json')],
+    logfiles: [fs.createReadStream('/Users/sasa/Programming/JavaScript/LearningJavaScript/TypeScript/servers/koa/LocalLogs/file1.json'), fs.createReadStream('/Users/sasa/Programming/JavaScript/LearningJavaScript/TypeScript/servers/koa/LocalLogs/file2.json')],
 };
 
 request.post(

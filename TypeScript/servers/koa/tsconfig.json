@@ -7,8 +7,8 @@
         "noImplicitAny": false,
         "sourceMap": false,  //produce build/**.map showing how it transcompiles
         "outDir": "build/",
-        "noUnusedParameters": true,
-        "noUnusedLocals": true
+        "noUnusedParameters": false,
+        "noUnusedLocals": false
     },
     "include": [
         "src/*.ts",

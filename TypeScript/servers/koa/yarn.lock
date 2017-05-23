@@ -145,14 +145,7 @@ chai@^3.5.0:
     deep-eql "^0.1.3"
     type-detect "^1.0.0"
 
-co-body@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/co-body/-/co-body-0.0.1.tgz#8241b047d0fbc3ef9b8db38539fbccfe5975caae"
-  dependencies:
-    qs "~0.6.5"
-    raw-body "~1.1.1"
-
-co-body@^5.1.0:
+co-body@*, co-body@^5.1.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/co-body/-/co-body-5.1.1.tgz#d97781d1e3344ba4a820fd1806bddf8341505236"
   dependencies:
@@ -160,6 +153,13 @@ co-body@^5.1.0:
     qs "^6.4.0"
     raw-body "^2.2.0"
     type-is "^1.6.14"
+
+co-body@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/co-body/-/co-body-0.0.1.tgz#8241b047d0fbc3ef9b8db38539fbccfe5975caae"
+  dependencies:
+    qs "~0.6.5"
+    raw-body "~1.1.1"
 
 co@^4.6.0:
   version "4.6.0"
@@ -321,9 +321,9 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-formidable@^1.0.17:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.1.1.tgz#96b8886f7c3c3508b932d6bd70c4d3a88f35f1a9"
+formidable@1.0.17, formidable@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.0.17.tgz#ef5491490f9433b705faa77249c99029ae348559"
 
 fresh@^0.5.0:
   version "0.5.0"
@@ -503,8 +503,8 @@ keygrip@~1.0.1:
   resolved "https://registry.yarnpkg.com/keygrip/-/keygrip-1.0.1.tgz#b02fa4816eef21a8c4b35ca9e52921ffc89a30e9"
 
 kind-of@^3.0.2:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.0.tgz#b58abe4d5c044ad33726a8c1525b48cf891bff07"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
   dependencies:
     is-buffer "^1.1.5"
 
@@ -522,6 +522,13 @@ koa-better-body@^3.0.2:
   resolved "git+https://github.com/tunnckoCore/body-parsers.git#b515504ef0bfe3e04aa3dd13502d3d90c2d60956"
   dependencies:
     raw-body "^2.1.0"
+
+koa-body@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/koa-body/-/koa-body-2.0.1.tgz#87a171d5f8d74b354e7d68abf3ad510999b15ce3"
+  dependencies:
+    co-body "*"
+    formidable "1.0.17"
 
 koa-bodyparser@^2.3.0:
   version "2.5.0"
