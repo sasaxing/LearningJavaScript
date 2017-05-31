@@ -1,27 +1,28 @@
 console.log('\n1. Dynamic Properties(aka., Accessor Properties )');
 class Car {
-  constructor(make, model){
+  constructor(make, model) {
     this.make = make;
     this.model = model;
-    this._userGears = ['P','N', 'R','D'];
+    this._userGears = ['P', 'N', 'R', 'D'];
     this._userGear = this._userGears[0];
   }
 
-// these get and set makes _userGear private.
-// car1.userGear <=>  call get
-// car1.userGear = 'X'  <=> call set
-// the idea here is that you can't access userGear directly as before:
-// car1.userGear will lead to calling the setter
-// but you will still be able to access _userGear as you did :(
+  // these get and set makes _userGear private.
+  // car1.userGear <=>  call get
+  // car1.userGear = 'X'  <=> call set
+  // the idea here is that you can't access userGear directly as before:
+  // car1.userGear will lead to calling the setter
+  // you will still be able to access _userGear as you did, 
+  // but good developers are not likely to access properties with the prefix _.
 
-  get userGear() { return this._userGear;}
-  set userGear(val){
-    if(this._userGears.indexOf(val) < 0)
+  get userGear() { return this._userGear; }
+  set userGear(val) {
+    if (this._userGears.indexOf(val) < 0)
       throw new Error(`Invalid gear: ${val}!`);
     this._userGear = val;
   }
 
-  shift(gear){
+  shift(gear) {
     this.userGear = gear;
     //this._userGear = gear;  // then outside will change _userGear directly using this function.
     // yes, others still can do this directly, but normal and good people will not.
