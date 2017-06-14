@@ -1,12 +1,12 @@
-import { TAMConfig, LocalStorageConfig, S3StorageConfig, StorageConfig } from './TAMConfig'
+import { TAMConfig, LocalStoragePolicy, S3StoragePolicy, StoragePolicy } from './TAMConfig'
 
 const DEFAULT_S3_BUCKET = 'rtc-platform-fusion-test-artifacts'
 const dummyTAMConfig: TAMConfig = {
     storagePolicies: [
-        { // a LocalStorageConfig
+        { // a LocalStoragePolicy
             port: 3000
         },
-        { // S3StorageConfig
+        { // S3StoragePolicy
             bucketName: DEFAULT_S3_BUCKET
         }
     ]
@@ -15,25 +15,25 @@ const dummyTAMConfig: TAMConfig = {
 /**
  * User Defined Type Guard!
  */
-function isLocalStorageConfig(storageConfig: any): storageConfig is LocalStorageConfig {
-    return storageConfig.port !== undefined
+function isLocalStoragePolicy(StoragePolicy: any): StoragePolicy is LocalStoragePolicy {
+    return StoragePolicy.port !== undefined
 }
 
 /**
  * User Defined Type Guard!
  */
-function isS3StorageConfig(storageConfig: any): storageConfig is S3StorageConfig {
-    return storageConfig.bucketName !== undefined
+function isS3StoragePolicy(StoragePolicy: any): StoragePolicy is S3StoragePolicy {
+    return StoragePolicy.bucketName !== undefined
 }
 
-console.log(isLocalStorageConfig(dummyTAMConfig.storagePolicies[0]))
-console.log(isS3StorageConfig(dummyTAMConfig.storagePolicies[0]))
+console.log(isLocalStoragePolicy(dummyTAMConfig.storagePolicies[0]))
+console.log(isS3StoragePolicy(dummyTAMConfig.storagePolicies[0]))
 
 dummyTAMConfig.storagePolicies.forEach((storagePolicy) => {
-    if (isLocalStorageConfig(storagePolicy)) {
-        console.log('Detect a LocalPolicy, TAM will use port:', storagePolicy.port) // needs storageConfig is LocalStorageConfig 
+    if (isLocalStoragePolicy(storagePolicy)) {
+        console.log('Detect a LocalPolicy, TAM will use port:', storagePolicy.port) // needs StoragePolicy is LocalStoragePolicy 
     }
-    if (isS3StorageConfig(storagePolicy)) {
-        console.log('Detect a S3Policy, TAM will use bucket:', storagePolicy.bucketName) // needs storageConfig is S3StorageConfig 
+    if (isS3StoragePolicy(storagePolicy)) {
+        console.log('Detect a S3Policy, TAM will use bucket:', storagePolicy.bucketName) // needs StoragePolicy is S3StoragePolicy 
     }
 })

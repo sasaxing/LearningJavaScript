@@ -1,27 +1,25 @@
-const words = ["Beachball", "Rodeo", "Angel",
-    "Aardvark", "Xylophone", "November", "Chocolate",
-    "Papaya", "Uniform", "Joker", "Clover", "Bali"];
+const timers = [3000, 2000, 1000]
+timers.forEach(async (timer) => {
+    console.log('begin')
+    await returnAPromise(timer).then((msg) => {
+        console.log(msg)
+    })
+    console.log('end')
+})
 
-const myObj = {
-    name: 'xxs'
-}
-let i = 100
-
-function doPromise(index) {
+function waitNms(n) {
     return new Promise((resolve, reject) => {
-        resolve(index)
-    }).then(() => {
-        console.log(index)
+        setTimeout(function () {
+            resolve(`${n}: ${n / 1000} s passed.`)
+        }, n);
     })
 }
-words.forEach(function (e, index, arr) {
-    console.log(i++)
 
-    //this part will be executed in the end
-    doPromise(index)
-}, myObj) //,thisArg
-
-
+function returnAPromise(n) {
+    return new Promise((resolve, reject) => {
+        resolve(`${n}: resolved.`)
+    })
+}
 
 /**
  * [T417: StorageProvider] (forEach + async-await) -> Promise.all in handleArtifacts.
@@ -42,6 +40,6 @@ words.forEach(function (e, index, arr) {
  * 
  * Solution:
  * async handleArtifacts(files: Array<{ name: string, path: string }>, sutId: string, testId: string) {
- *      await Promise.all(files.map(file => this._handleArtifact(file, sutId, testId)))
+ *     await Promise.all(files.map(file => this._handleArtifact(file, sutId, testId)))
  * }
  */
