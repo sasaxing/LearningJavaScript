@@ -27,9 +27,13 @@
     "test": "mocha --colors --reporter spec build/test/**/*spec.js"
   },
   "dependencies": {
+    "@types/http-status-codes": "^1.0.29",
+    "http-status-codes": "^1.1.6",
+    "http-statuscode": "^1.0.2",
     "koa": "^2.2.0",
     "koa-better-body": "^3.0.2",
     "koa-body": "^2.0.1",
-    "koa-convert": "^1.2.0"
+    "koa-convert": "^1.2.0",
+    "status-code": "^0.1.0"
   }
 }

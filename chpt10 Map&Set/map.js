@@ -28,7 +28,7 @@ const userRoles1 = new Map([
     [u3, 'Admin'],
     [u4, 'User'],
 ]);
-console.log(`userRoles1.size = ${userRoles1.size}`); //3
+console.log(`userRoles1.size = ${userRoles1.size}`); //4
 
 console.log("\n3. access map's entry using has() and get()")
 console.log(`userRoles.has(u1) = ${userRoles.has(u1)}`);
@@ -77,7 +77,7 @@ console.log("\n7. weakmap:");
 // So that if there is no other variables that hold reference to this object, the object will be gc.
 // but for Map: if obj1 = {a:1}, map1 = { obj1 => 'k1' }, when obj1=null, the object that obj1 refered to will still live in heap,
 // because map1's first key still holds a reference to it.
-const SecretHolder = (function() {
+const SecretHolder = (function () {
     const secrets = new WeakMap();
     return class {
         setSecret(secret) {
