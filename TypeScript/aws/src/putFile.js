@@ -1,0 +1,10 @@
+"use strict";
+var path = require("path");
+var S3Promisified = require("aws-s3-promisified");
+var bucket = 'rtc-platform-fusion-test-artifacts';
+var key = 's3-promised/hello.pdf';
+var filePath = path.join(__dirname, 'testFile.txt');
+var s3 = S3Promisified();
+var feedback = s3.putFile(bucket, key, filePath);
+console.log(feedback);
+console.log(typeof (s3));

@@ -12,6 +12,6 @@ node_modules
 *.pdf
 **/*/*.pdf
 # AWS-S3
-AWS/
+Wild/AWS/
 # servers’ upload files
 **/**/upload_*.json
