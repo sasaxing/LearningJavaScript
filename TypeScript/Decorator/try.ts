@@ -1,21 +1,35 @@
 //https://www.sitepoint.com/javascript-decorators-what-they-are/
+/**
+ * Decorators are actually nothing more than functions that return another function, 
+ * and that are called with the appropriate details of the item being decorated. 
+ * These decorator functions are evaluated once when the program first runs, 
+ * and the decorated code is replaced with the return value.
+ */
 class Example {
-    @log('[sum]')
+    @log('[sum]') //代表Example.sum已经被log替换了。
     sum(a, b) {
         console.log('[sum]')
         return a + b;
     }
 
-    @xxs()
+    @xxs() //代表Example.subtract已经被xxs替换了。
     subtract(a, b) {
         console.log('[subtract]')
         return a - b
     }
 }
-//这个函数在有 @log 的地方就被执行了，并不是要等到它所decorate的函数被调用。
+// 这个函数在有 @log 的地方就被执行了，并不是要等到它所decorate的函数被调用。
 // 所以byot-CommunicationManager里面的onReceive，是在所有的东西开始之前就被执行了。
 function log(name) {
-    return function decorator(t, n, descriptor) {
+    return function decorator(target, name, descriptor) {
+        /**
+         * [target] Example{} -- object
+         * [name] sum -- string
+         * [descriptor] { value: [Function: sum],
+                          writable: true,
+                          enumerable: false,
+                          configurable: true } -- object.
+         */
         const original = descriptor.value;
         if (typeof original === 'function') {
             // the magic happens here: the original function will be overwritten by the descriptor.value new function here 
