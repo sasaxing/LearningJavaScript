@@ -46,7 +46,7 @@ function log(name) {
                 }
             }
         }
-        return descriptor;
+        return descriptor; // this return is optional.
     };
 }
 
