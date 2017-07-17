@@ -1,1 +1,3 @@
-hello from Node!
+==> Hello from appendFileSync!
+==> Hello from appendFileSync!
+==> Hello from appendFileSync!
