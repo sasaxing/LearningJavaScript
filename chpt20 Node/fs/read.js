@@ -5,8 +5,9 @@ const path = require('path');
 
 /* fs.readFileSync:  read syncly, and return the read contents*/
 let result = fs.readFileSync(path.join(__dirname, "hello.txt"), { encoding: 'utf8' })
-// without option:{encodeing: 'utf8'}, this will return an object
+// without option:{encodeing: 'utf8'}, this will return an object<Buffer>
 console.log('result = ', result)
+console.log('typeof(result) = ', typeof (result))
 
 /* fs.readFile: read asyncly, does NOT return the read contents, but use function as err&data handler */
 fs.readFile(path.join(__dirname, "helloo.txt"), { encoding: 'utf8' }, function (err, data) {
