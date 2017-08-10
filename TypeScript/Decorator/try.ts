@@ -70,6 +70,6 @@ e.subtract(3, 1)
  * 
  * [byot]:
  * 不是在onReceive()的时候要执行doSomething()，
- * 而是在执行duSomething()的时候要转而去执行onReceive()，而不再执行doSomething()，
+ * 而是在执行doSomething()的时候要转而去执行onReceive()，而不再执行doSomething()，
  * 原本的doSomething()会在onReceive()之中被调用（或者不，取决于onReceive怎么定义）。
  */

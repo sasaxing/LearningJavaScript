@@ -1,13 +1,16 @@
 /**
  * To take away:
  * 
- * When you pass an object as a parameter to a function, it will be automatically regarded as a const object.
- * So the reference is a constant, which can't be changed.
- * As a result, you can modify the object itself, but not the reference.
- * I.e., you can modify the property of the object, but can't reassign the variable to another object(change the reference).
+ * When you pass an object as a parameter to a function, you pass only the reference of the object.
+ * If you modify the object, it's doing directly on that object;
+ * while if you re-assign the variable to another object, it means you change the reference to another object,
+ * as a result, what you do to the new object refered by the variable will make effect on only the new object, and the old object remains unchanged.
  * 
- * NOTE: But it does not throw error to you when you try to modify the reference.
- * Instead it creates another object for you....
+ * That's why when you do 
+ * obj.a = 11, to the variable obj, the original obj's a will be changed to 11 as well.
+ * but when you do 
+ * obj ={a:11}, you just refer the variable obj to another new object{a:11}, and you just drop the reference to the original object,
+ * so that the original object is already out of your control. 
  */
 
 const myObj = {

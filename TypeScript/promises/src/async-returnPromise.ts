@@ -2,6 +2,7 @@ import { tossACoin } from './tossACoin'
 
 async function retAPromise(): Promise<any> {
     return new Promise((resolve, reject) => {
+        console.log('inside the promise.')
         resolve(':)')
     })
 }
