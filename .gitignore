@@ -15,3 +15,6 @@ node_modules
 Wild/AWS/
 # servers’ upload files
 **/**/upload_*.json
+
+# others’ repo
+**/**/aspect-js-repo
