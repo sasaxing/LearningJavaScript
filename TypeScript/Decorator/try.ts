@@ -54,7 +54,7 @@ function xxs() {
     return function decorator(t, n, descriptor) {
         const original = descriptor.value;
         descriptor.value = () => { console.log('[xxs!!!]') }// the magic happens here: the original function will be overwritten by the descriptor.value new function here 
-        // if descriptor.value is not overwritten, then it still invoke the original function when e.sum(1,3)
+        // if descriptor.value is not re-assigned, then it still invoke the original function when e.sum(1,3)
     };
 }
 

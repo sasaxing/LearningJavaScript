@@ -1,7 +1,7 @@
 import { Animal } from './Animal'
-
+import { DogTravelDecorator as dogDecorator } from './DogTravelDecorator'
 import { Wove } from 'aspect.js'
-import { beforeMethod, Metadata, afterMethod } from 'aspect.js'
+import { beforeMethod, Metadata, afterMethod, beforeStaticMethod } from 'aspect.js'
 
 export class DogApsects {
     @beforeMethod({ classNamePattern: /^Dog/, methodNamePattern: /^speak/ })
@@ -23,6 +23,11 @@ export class DogApsects {
     async afterProtect(meta: Metadata) { // look aspect.js-repo/aop.js/test/advices/async_advices.spec.ts
         await meta.method.result
         console.log('[Dog - after protect]')
+    }
+
+    @beforeMethod({ classNamePattern: /^Dog/, methodNamePattern: /^travel/ })
+    beforeTravel(meta: Metadata) { // look aspect.js-repo/aop.js/test/advices/async_advices.spec.ts
+        console.log('[Dog - before travel]')
     }
 }
 
@@ -47,5 +52,10 @@ export class Dog extends Animal {
                 resolve()
             }, 1000);
         })
+    }
+
+    @dogDecorator.travelDecorator(24 * 3)
+    travel(dest: string) {
+        console.log('Dog - enjoy traveling in ' + dest)
     }
 }

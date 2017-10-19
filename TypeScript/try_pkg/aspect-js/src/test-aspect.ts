@@ -1,5 +1,6 @@
 import { beforeMethod, Metadata, afterMethod } from 'aspect.js'
 import { Dog } from './Dog'
+import { Person } from './Person'
 import { Builder } from './Builder'
 
 const myDog = new Dog('Qiuqiu')
@@ -8,6 +9,10 @@ myDog.eat()
 myDog.bark()
 myDog.protectMaster()
 
+
+const p = new Person('xxs')
+p.keepAPet('duoduo')
+p.travel('China')
 /*
 export class BuilderApsects {
     @afterMethod({ classNamePattern: /^Builder/, methodNamePattern: /^createADog/ })
