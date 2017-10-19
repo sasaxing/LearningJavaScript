@@ -1,0 +1,18 @@
+{
+  "name": "super-chai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --fgrep @slow --invert --colors --reporter spec test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "chai": "^4.1.2"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "dependencies": {}
+}
