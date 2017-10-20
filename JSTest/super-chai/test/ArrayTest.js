@@ -24,11 +24,12 @@ describe.only('Super Chai', () => {
         })
     })
 
-    describe('.afterwards', () => {
-        it('should assert the rest part of the array', () => {
-            expect([1, 2, 3, 4, 5]).to.have
-                .number(1)
-                .and.afterwards(3)
+    describe('.then', () => {
+        it('should be able to chanied', () => {
+            expect([1, 2, 3, 4, 5, 6, 7, 8]).to.have
+                .number(3)
+                .afterwards.number(6)
+                .afterwards.number(8)
         })
     })
 })
