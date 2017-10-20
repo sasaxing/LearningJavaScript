@@ -1,17 +1,36 @@
-const doesExperienced = function (array, subValue) {
+const doesContain = function (array, subValue) {
     return array.indexOf(subValue) !== -1
 }
 
-module.exports = (chai) => {
-    chai.Assertion.addMethod('experienced', function (value) {
+const superChai = (chai, utils) => {
+    chai.Assertion.addMethod('number', function (value) {
         this.assert(
-            doesExperienced(this._obj, value),
-            `expected #{this} to have experienced ${value}`,
-            `expected #{this} not to have experienced ${value}`
+            doesContain(utils.flag(this, 'object'), value),
+            `expected [${utils.flag(this, 'object')}] to have number ${value}`,
+            `expected [${utils.flag(this, 'object')}]  not to have number ${value}`
+        )
+        utils.flag(this, 'lastIndex', 100)
+        return new chai.Assertion(utils.flag(this, 'object'))
+    })
+
+    chai.Assertion.addMethod('finally', function (value) {
+        const finalElement = utils.flag(this, 'object').slice(-1).pop()
+        this.assert(
+            finalElement === value,
+            `expected ${finalElement} to be ${value}`,
+            `expected ${finalElement} not to be ${value}`
         )
     })
-    chai.Assertion.addChainableMethod(chai.Assertion.prototype, 'foo', function (str) {
-        var obj = chai.Assertion.flag(this, 'object');
-        new chai.Assertion(obj).to.be.equal(str);
-    });
+
+    chai.Assertion.addMethod('afterwards', function (value) {
+        const restArray = utils.flag(this, 'object')
+        console.log(utils.flag(this, 'lastIndex'))
+        this.assert(
+            finalElement === value,
+            `expected ${finalElement} to be ${value}`,
+            `expected ${finalElement} not to be ${value}`
+        )
+    })
 }
+
+module.exports = superChai 
