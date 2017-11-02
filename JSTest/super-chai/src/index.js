@@ -3,33 +3,37 @@ const doesContain = function (array, subValue) {
 }
 
 const superChai = (chai, utils) => {
-    chai.Assertion.addMethod('number', function (value) {
-        this.assert(
-            doesContain(utils.flag(this, 'object'), value),
-            `expected [${utils.flag(this, 'object')}] to have number ${value}`,
-            `expected [${utils.flag(this, 'object')}]  not to have number ${value}`
+    let globalThis
+
+    chai.Assertion.addChainableMethod('number', function (value) {
+        globalThis = this
+        globalThis.assert(
+            doesContain(utils.flag(globalThis, 'object'), value),
+            `expected [${utils.flag(globalThis, 'object')}] to have number ${value}`,
+            `expected [${utils.flag(globalThis, 'object')}]  not to have number ${value}`
         )
-        utils.flag(this, 'lastIndex', 100)
-        return new chai.Assertion(utils.flag(this, 'object'))
+
+        utils.flag(globalThis, 'lastIndex', utils.flag(globalThis, 'object').indexOf(value))
+        return new chai.Assertion(utils.flag(globalThis, 'object'))
     })
 
     chai.Assertion.addMethod('finally', function (value) {
-        const finalElement = utils.flag(this, 'object').slice(-1).pop()
-        this.assert(
+        const finalElement = utils.flag(globalThis, 'object').slice(-1).pop()
+        globalThis.assert(
             finalElement === value,
             `expected ${finalElement} to be ${value}`,
             `expected ${finalElement} not to be ${value}`
         )
     })
 
-    chai.Assertion.addMethod('afterwards', function (value) {
-        const restArray = utils.flag(this, 'object')
-        console.log(utils.flag(this, 'lastIndex'))
-        this.assert(
-            finalElement === value,
-            `expected ${finalElement} to be ${value}`,
-            `expected ${finalElement} not to be ${value}`
-        )
+    chai.Assertion.addProperty('afterwards', function () {
+        //console.log(this.__flags.object)
+        const previousArray = utils.flag(globalThis, 'object')
+        const lastIndex = utils.flag(globalThis, 'lastIndex')
+        const restArray = previousArray.slice(lastIndex + 1, previousArray.length)
+        utils.flag(globalThis, 'object', restArray)
+
+        return new chai.Assertion(utils.flag(globalThis, 'object'))
     })
 }
 
