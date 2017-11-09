@@ -1,8 +1,9 @@
 console.log('Start.')
 
-process.on('beforeExit', (code) => {
+process.on('SIGINT', (code) => {
     console.log('Exit ----- ', code)
 })
 
-debugger
-console.log('End.')
+setTimeout(function () {
+    console.log('End.')
+}, 2000);
