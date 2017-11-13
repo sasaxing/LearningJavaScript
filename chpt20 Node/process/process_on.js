@@ -1,7 +1,7 @@
 console.log('Start.')
 
-process.on('SIGINT', (code) => {
-    console.log('Exit ----- ', code)
+process.on('SIGINT', () => {
+    console.log('------ Exit ----- ')
 })
 
 setTimeout(function () {
