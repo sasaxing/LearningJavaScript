@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import * as LogRocket from 'logrocket'
+import { createStore, applyMiddleware } from 'redux'
 import * as deepMerge from 'deepmerge'
 
 const reducer = (state = {}, action) => {
@@ -30,9 +31,11 @@ const reducer = (state = {}, action) => {
     }
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(LogRocket.reduxMiddleware()))
 store.subscribe(() => console.log(store.getState()))
 
-store.dispatch({ type: 'SETUP' })
-store.dispatch({ type: 'SENDMSG' })
-store.dispatch({ type: 'ALALALA' })
+
+store.dispatch({ type: 'SETUP', target: 'xing' })
+store.dispatch({ type: 'SENDMSG', target: 'xing' })
+store.dispatch({ type: 'ALALALA', target: 'xing' })
+

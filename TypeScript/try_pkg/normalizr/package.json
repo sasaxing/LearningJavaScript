@@ -1,5 +1,5 @@
 {
-  "name": "try_redux",
+  "name": "try_normalizr",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "deepmerge": "^1.5.2",
-    "logrocket": "^0.6.1",
-    "redux": "^3.7.2"
+    "normalizr": "^3.2.4"
   }
 }
