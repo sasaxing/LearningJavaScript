@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.1.2",
+    "chai-redux": "^1.0.1",
     "deepmerge": "^1.5.2",
     "logrocket": "^0.6.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6"
   }
 }

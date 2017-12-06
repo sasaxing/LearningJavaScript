@@ -1,4 +1,6 @@
 import * as LogRocket from 'logrocket'
+LogRocket.init('wzhd2u/storehistorytracking')
+
 import { createStore, applyMiddleware } from 'redux'
 import * as deepMerge from 'deepmerge'
 
@@ -39,3 +41,4 @@ store.dispatch({ type: 'SETUP', target: 'xing' })
 store.dispatch({ type: 'SENDMSG', target: 'xing' })
 store.dispatch({ type: 'ALALALA', target: 'xing' })
 
+LogRocket.getSessionURL((url) => console.log('url'))
