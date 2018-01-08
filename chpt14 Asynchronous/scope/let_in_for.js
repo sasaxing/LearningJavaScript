@@ -1,4 +1,4 @@
-let i;
+let i; // same if `var i;` or writting `var` in for(var i=0...)
 for (i = 0; i < 5; i++) { // all loops' scope share the global single i
     /*
     ==> 1st loop:

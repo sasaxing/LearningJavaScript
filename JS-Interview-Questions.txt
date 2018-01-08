@@ -1,0 +1,28 @@
+https://www.toptal.com/javascript/interview-questions
+
+
+- The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
+
+- What is a “closure” in JavaScript? Provide an example.
+
+
+- What would the following lines of code output to the console?
+
+console.log("0 || 1 = "+(0 || 1));
+console.log("1 || 2 = "+(1 || 2));
+console.log("0 && 1 = "+(0 && 1));
+console.log("1 && 2 = "+(1 && 2));
+Explain your answer.
+
+- Consider the following code. What will the output be, and why?
+
+(function () {
+    try {
+        throw new Error();
+    } catch (x) {
+        var x = 1, y = 2;
+        console.log(x);
+    }
+    console.log(x);
+    console.log(y);
+})();
