@@ -1,0 +1,17 @@
+{
+  "name": "learn_sinon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --fgrep @slow --invert --colors --reporter spec test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  },
+  "dependencies": {
+    "sinon": "^4.1.4"
+  }
+}
