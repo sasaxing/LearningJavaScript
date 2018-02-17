@@ -1,4 +1,4 @@
-function classDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {
+function classDecorator<T extends { new(...args: any[]): {} }>(constructor: T) {
     return class extends constructor {
         newProperty = "new property";
         hello = "override";
@@ -19,6 +19,6 @@ class Greeter {
     }
 }
 
-const greeter = new Greeter('world')
-console.log(greeter)
-greeter.greet()
+const greeter = new Greeter('world') // print: [original constructor]
+console.log(greeter)// print: Greeter{property:, hello, newProperty}
+greeter.greet() // [greet]
