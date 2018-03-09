@@ -10,6 +10,7 @@ export const BYOT_LOG_DEFAULT_PATH = process.cwd()
 export class ByotLogger {
 
     _winstonLogger: winston.LoggerInstance
+    reduxStore: string = '-----'
 
     constructor() {
         this._winstonLogger = new winston.Logger
@@ -40,7 +41,7 @@ export class ByotLogger {
     }
 
     info(msg: string) {
-        this._winstonLogger.info(msg, ByotLogger._getLogMetaData())
+        this._winstonLogger.info(msg + this.reduxStore, ByotLogger._getLogMetaData())
     }
 
     warn(msg: string) {
