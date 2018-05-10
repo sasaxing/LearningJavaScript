@@ -7,6 +7,9 @@ function calculate(r) {
   return 4 / 3 * Math.PI * Math.pow(r, 3);
 }
 module.exports = calculate; // export a function as default export
+// from now on `module.exports` refers to another object
+// which is not bound to `exports` anymore.
+// all the exported things should always be written into `module.exports`.
 
 
 // 2. add another function to the module.exports object.
