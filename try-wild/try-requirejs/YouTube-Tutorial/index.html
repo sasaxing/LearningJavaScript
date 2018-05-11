@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Setting up RequireJS</title>
+</head>
+
+<body>
+    <button id="clickMe">Asynchronous Module Definition</button>
+    <script data-main="js/config" src="require.js"></script>
+    <!-- data-main is async loading: i.e.,  the alert() will be executed before 'config' is loaded.-->
+    <!--<script>alert()</script>-->
+    <script> // here require.js has already been loaded.
+        alert('before require keyword') // this will be executed before config.js is loaded.
+        require(['config'], function () { // require keyword will also make config.js to be loaded(don't worry about the duplicated, it'll not be loaded again if already loaded.)
+            // Your code here... They will be fired immediately after config.js is loaded.
+            // after config.js is loaded, all the js files defined there are accessible here.
+            alert('after require keyword.')
+            require(['customScripts/jqueryFile']) // this will trigger jqueryFile to be loaded.
+        })
+    </script>
+</body>
+
+</html>

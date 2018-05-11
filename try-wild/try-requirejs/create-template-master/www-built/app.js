@@ -1,0 +1,1 @@
+define("app/messages",[],function(){return{getHello:function(){return"Hello World"}}}),define("print",[],function(){return function(e){console.log(e)}}),define("app/main",["require","./messages","print"],function(e){var n=e("./messages");e("print")(n.getHello())}),requirejs.config({baseUrl:"lib",paths:{app:"../app"}}),requirejs(["app/main"]),define("app",function(){});
