@@ -9,6 +9,6 @@ requirejs.config({
         ],
         // Q: why I can't use 'oh_my_jquery' here?
         oh_my_logger: 'lib/myLogger',
-        methods: 'customScripts/methods'
+        mymethods: 'customScripts/methods'
     }
 })
