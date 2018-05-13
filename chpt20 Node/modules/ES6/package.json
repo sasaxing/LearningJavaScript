@@ -1,0 +1,19 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "importer.js",
+  "scripts": {
+    "build": "npx babel src-es6 --out-dir dist-es5",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "exe-es5": "npm run build && node dist-es5/importer.js",
+    "exe-es6": "babel-node importer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}

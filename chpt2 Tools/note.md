@@ -10,7 +10,7 @@
 
 * Node, which allows you to run JavaScript outside of the browser (and comes with npm, which gives you access to the rest of the tools on this list).
 
-* Gulp, a build tool that automates common development tasks (Grunt is a popularal ternative).
+* Gulp, a build tool that automates common development tasks (Grunt is a popular al ternative).
 
   ```shell
   sudo npm install -g gulp	
