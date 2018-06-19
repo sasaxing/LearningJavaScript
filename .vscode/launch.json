@@ -8,7 +8,10 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/isCyclic.js"
+            "program": "${workspaceFolder}/chpt6 Functions/function_class.js",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
         },
         {
             "type": "node",

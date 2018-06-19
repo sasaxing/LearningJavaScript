@@ -6,7 +6,7 @@
 this.desc = "I'm outside function fn.";
 var aVar = 'just a global var';
 
-console.log('==> f1():');
+console.log('\n==> f1():');
 const f1 = function(){
   console.log('f1:');
   console.log(this.desc);
@@ -14,7 +14,7 @@ const f1 = function(){
 }
 f1(); // f1: undefined.
 
-console.log('==> f2():');
+console.log('\n==> f2():');
 const f2 = () => {
   console.log("f2:");
   console.log(this.desc);
@@ -22,7 +22,7 @@ const f2 = () => {
 }
 f2(); //  f2: I'm outside function f1 and f2.
 
-console.log('==> f3():');
+console.log('\n==> f3():');
 const that = this;
 const f3 = function(){
   console.log('f3:');
@@ -31,7 +31,7 @@ const f3 = function(){
 }
 f3()
 
-console.log('==> obj.test():');
+console.log('\n==> obj.test():');
 const obj = {
   name : 'tester',
   desc : "I'm inside obj.",
@@ -42,7 +42,7 @@ const obj = {
 obj.test1(); // f1: I'm inside obj.
 obj.test2(); // f2: I'm outside function f1 and f2.
 
-console.log('==> f4():');
+console.log('\n==> f4():');
 // function Declaration will be hoisted
 // so they will actually go out to check if any 'this' object has the property desc.
 function f4(){
@@ -58,7 +58,7 @@ f4(); // f4
 
 
 
-console.log('==> f5():');
+console.log('\n==> f5():');
 this.outerProp = 'outerProp'
 this.bothProp = 'bothProp-outside'
 f5 = ()=>{

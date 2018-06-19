@@ -11,6 +11,8 @@ function update(birthYear, occupation){
   this.occupation = occupation; // or you decide the bounder using 'call'
 }
 
+console.log('--',greet());
+
 const g1=greet.call(bruce);
 const g2=greet.call(madeline);
 console.log(g1);
