@@ -1,4 +1,4 @@
-console.log('\n1.');
+console.log('\n ==> 1.');
 
 function* rainbow() {
   yield 'red'; // every 'next' will continue rainbow() to execute until the next 'yield';
@@ -12,20 +12,21 @@ function* rainbow() {
 }
 
 const iter = rainbow();
-iter.next(); //{ value: 'red', done: false }
-iter.next();
-iter.next();
-iter.next();
-iter.next();
-iter.next();
-iter.next();
-iter.next();
+console.log(iter.next()); //{ value: 'red', done: false };
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+
+console.log('\n ==> 2.');
 
 // things that use generators don't always pay attention to the value property when 'done' is true.
 for (let color of rainbow()) {  // when done = true, it will not be printed out.
   console.log(color);
 }
-
 
 console.log('\n2.');
 function* interrogate() {
