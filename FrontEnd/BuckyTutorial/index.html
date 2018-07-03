@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<!--
+    <script type="text/javascript">
+        function funky() {
+            alert('ouch!!!');
+        }
+
+        function person(name, age) { // constructor
+            this.name = name;
+            this.age = age;
+            this.speak = document.writeln('Nice to meet you! :)))))');
+        }
+        var bucky = new person('bucky',100);
+        //bucky.speak();
+
+        document.writeln(bucky.age);
+
+        var userName = prompt('May I know your name?');
+        document.writeln('Hello '+ userName + ' :)))');
+
+        document.writeln(document.forms[0].length);
+    </script>
+    <a href="https://google.de" onmouseover="alert('gametime');"> Hover oever me :)) </a>
+
+<form>
+    <input type="button" value="touch me" onclick="funky();alert('done');">
+</form>
+-->
+  
+<form name="Form1">
+    Username: <input type="text" name="my_username"/>
+    Password: <input type="password" name="my_password"/>
+    <input type="checkbox"  value="I agree the terms" name="my_box"/>
+    <input type="button" value="submit!!" onclick="validate();"/>
+</form>
+<script>
+    function validate() {
+        if(!document.Form1.my_box.checked){
+            alert('You have to accept this to submit...');
+        }
+    }
+    document.writeln(document.forms[0].elements[0].name);
+
+</script>
+
+
+</body>
+</html>
