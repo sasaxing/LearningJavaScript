@@ -10,3 +10,8 @@ enum ErrorKind {
 }
 
 console.log(typeof(ErrorKind.ConstraintNotSatisfiedError));
+
+enum Days {
+    sun, mon, tue, wed, thu, fri, sat
+}
+console.log(Days.fri);
