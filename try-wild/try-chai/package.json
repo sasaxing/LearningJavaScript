@@ -1,0 +1,15 @@
+{
+  "name": "try-chai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demo.mocha.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha *.mocha.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}

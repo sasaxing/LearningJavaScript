@@ -1,22 +1,28 @@
-# npm debugging logs
+########### npm debugging logs
 *.log
-# project dependencies
+
+########### project dependencies
 node_modules
 **/*/node_modules
-# OSX folder attributes
+
+########### OSX folder attributes
 .DS_Store
-#temporary files
+
+########### temporary files
 *.tmp
 *~
-# documentations
+
+########### documentations
 *.pdf
 **/*/*.pdf
-# AWS-S3
+
+########### AWS-S3
 Wild/AWS/
-# servers’ upload files
+
+########### servers’ upload files
 **/**/upload_*.json
 
-# others’ repo
+########### others’ repo
 **/**/aspect-js-repo
 **/**/tryBYOT
 try-wild/_Sensitive
